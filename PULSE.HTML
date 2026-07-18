@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PulseAI | Intelligent Social Media Companion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0d1117;
+color:white;
+overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00E5FF;
+border-radius:20px;
+}
+
+/* Navbar */
+
+header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 8%;
+
+background:rgba(10,15,30,.65);
+
+backdrop-filter:blur(15px);
+
+z-index:999;
+
+transition:.4s;
+
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:700;
+
+color:#00E5FF;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:35px;
+
+list-style:none;
+
+}
+
+nav ul li a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+color:#00E5FF;
+
+}
+
+.btn{
+
+padding:14px 35px;
+
+background:linear-gradient(135deg,#00E5FF,#6C63FF);
+
+border-radius:40px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.4s;
+
+display:inline-block;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px rgba(0,229,255,.35);
+
+}
+
+/* Hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+background:
+
+linear-gradient(rgba(5,10,25,.85),rgba(5,10,25,.88)),
+
+url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.hero h1{
+
+font-size:68px;
+
+margin-bottom:20px;
+
+}
+
+.hero h1 span{
+
+color:#00E5FF;
+
+}
+
+.hero p{
+
+max-width:850px;
+
+margin:auto;
+
+font-size:20px;
+
+line-height:1.8;
+
+margin-bottom:40px;
+
+color:#ddd;
+
+}
+
+/* Section */
+
+section{
+
+padding:100px 8%;
+
+}
+
+.section-title{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:50px;
+
+color:#00E5FF;
+
+}
+
+/* About */
+
+.about{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+.about img{
+
+width:100%;
+
+border-radius:25px;
+
+box-shadow:0 25px 50px rgba(0,229,255,.2);
+
+}
+
+.about h2{
+
+font-size:40px;
+
+margin-bottom:20px;
+
+}
+
+.about p{
+
+line-height:1.9;
+
+font-size:17px;
+
+color:#d7d7d7;
+
+}
+
+/* Glass Cards */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+padding:35px;
+
+border-radius:20px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 20px 40px rgba(0,229,255,.15);
+
+}
+
+.card h3{
+
+color:#00E5FF;
+
+margin:20px 0;
+
+font-size:24px;
+
+}
+
+.card p{
+
+color:#ccc;
+
+line-height:1.8;
+
+}
+
+/* Dashboard */
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.box{
+
+padding:35px;
+
+border-radius:20px;
+
+background:#161b22;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.4s;
+
+}
+
+.box:hover{
+
+transform:translateY(-10px);
+
+}
+
+.box h2{
+
+font-size:45px;
+
+color:#00E5FF;
+
+margin-bottom:10px;
+
+}
+
+/* Fade Animation */
+
+.fade{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:1s;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+<script>
+  window.wxOConfiguration = {
+    orchestrationID: "d1dffcb1e8a640ab9b945cca2854221f_9e188084-3036-4298-82fe-b55192e325da",
+    hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
+    rootElementID: "root",
+    deploymentPlatform: "ibmcloud",
+    crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/d1dffcb1e8a640ab9b945cca2854221f:9e188084-3036-4298-82fe-b55192e325da::",
+    chatOptions: {
+        agentId: "cf05f69c-f822-4a3e-ad7a-bff91f07acd1", 
+        agentEnvironmentId: "effda591-0780-42e4-afa3-fa87f7ea2de2",
+    }
+  };
+  setTimeout(function () {
+    const script = document.createElement('script');
+    script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+    script.addEventListener('load', function () {
+        wxoLoader.init();
+    });
+    document.head.appendChild(script);
+  }, 0);                     
+</script>
+<header>
+
+<div class="logo">PulseAI</div>
+
+<nav>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#dashboard">Dashboard</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>Intelligent <span>Social Media</span><br>Companion</h1>
+
+<p>
+
+Monitor trends, predict engagement, generate AI-powered content,
+analyze competitors, and optimize campaigns using IBM Granite,
+IBM Langflow, and IBM Orchestrate.
+
+</p>
+
+<a href="#features" class="btn">Explore Platform</a>
+
+</div>
+
+</section>
+
+<section id="about" class="fade">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80">
+
+<div>
+
+<h2>About PulseAI</h2>
+
+<p>
+
+PulseAI is an intelligent agentic AI platform that unifies social media
+analytics across LinkedIn, Instagram, Facebook, and X into one
+powerful dashboard.
+
+</p>
+
+<br>
+
+<p>
+
+Using IBM Granite Models, IBM Langflow, and IBM Orchestrate,
+PulseAI predicts trends, analyzes audience sentiment,
+tracks competitors, generates creative content,
+and recommends the best posting strategy in real time.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="features">
+
+<h2 class="section-title fade">
+
+Core Features
+
+</h2>
+
+<div class="cards">
+<div class="card fade">
+
+<h3>📊 Social Listening</h3>
+
+<p>
+
+Monitor hashtags, mentions, comments, competitor activities,
+and trending conversations across LinkedIn, Instagram,
+Facebook and X in one unified dashboard.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>🤖 AI Content Generator</h3>
+
+<p>
+
+Generate captions, LinkedIn posts, tweets, Facebook posts,
+campaign ideas, hashtags and call-to-actions that match
+your brand voice.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>😊 Sentiment Analysis</h3>
+
+<p>
+
+Understand how your audience feels using AI-powered
+positive, neutral and negative sentiment analysis with
+real-time recommendations.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>📈 Trend Prediction</h3>
+
+<p>
+
+Forecast trending hashtags, viral topics,
+engagement patterns and the best posting schedule.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>🏆 Competitor Intelligence</h3>
+
+<p>
+
+Track competitor campaigns, engagement rates,
+popular content, posting frequency and audience growth.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>📅 Smart Scheduler</h3>
+
+<p>
+
+Receive AI recommendations for the best day,
+time and platform to publish your content.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Dashboard -->
+
+<section id="dashboard">
+
+<h2 class="section-title fade">
+
+Live Analytics Dashboard
+
+</h2>
+
+<div class="dashboard">
+
+<div class="box fade">
+
+<h2>1.5M+</h2>
+
+<p>Total Reach</p>
+
+</div>
+
+<div class="box fade">
+
+<h2>98%</h2>
+
+<p>Positive Sentiment</p>
+
+</div>
+
+<div class="box fade">
+
+<h2>350K</h2>
+
+<p>Engagement</p>
+
+</div>
+
+<div class="box fade">
+
+<h2>120+</h2>
+
+<p>Trending Hashtags</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Competitor -->
+
+<section>
+
+<h2 class="section-title fade">
+
+Competitor Intelligence
+
+</h2>
+
+<div class="cards">
+
+<div class="card fade">
+
+<h3>🔍 Competitor Monitoring</h3>
+
+<p>
+
+Automatically analyze competitor profiles,
+top-performing posts, campaigns,
+engagement rate and follower growth.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>📢 Campaign Analysis</h3>
+
+<p>
+
+Compare campaign performance,
+identify successful strategies,
+and discover content gaps.
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>🚀 AI Recommendations</h3>
+
+<p>
+
+Receive actionable suggestions to outperform competitors
+using AI-driven insights and predictive analytics.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Pricing -->
+
+<section>
+
+<h2 class="section-title fade">
+
+Plans
+
+</h2>
+
+<div class="cards">
+
+<div class="card fade">
+
+<h3>Starter</h3>
+
+<h2 style="color:#00E5FF;">Free</h2>
+
+<p>
+
+✔ Social Listening<br>
+
+✔ Caption Generator<br>
+
+✔ Hashtag Suggestions<br>
+
+✔ Weekly Analytics
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>Professional</h3>
+
+<h2 style="color:#00E5FF;">$29/month</h2>
+
+<p>
+
+✔ Everything in Starter<br>
+
+✔ Trend Prediction<br>
+
+✔ Competitor Analysis<br>
+
+✔ AI Campaign Builder
+
+</p>
+
+</div>
+
+<div class="card fade">
+
+<h3>Enterprise</h3>
+
+<h2 style="color:#00E5FF;">Custom</h2>
+
+<p>
+
+✔ Unlimited Projects<br>
+
+✔ IBM Granite Models<br>
+
+✔ IBM Orchestrate<br>
+
+✔ Dedicated AI Support
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Testimonials -->
+
+<section>
+
+<h2 class="section-title fade">
+
+What Users Say
+
+</h2>
+
+<div class="cards">
+
+<div class="card fade">
+
+<h3>⭐⭐⭐⭐⭐</h3>
+
+<p>
+
+PulseAI helped us increase engagement by
+more than 40% in just one month.
+
+</p>
+
+<b>— Sarah, Marketing Manager</b>
+
+</div>
+
+<div class="card fade">
+
+<h3>⭐⭐⭐⭐⭐</h3>
+
+<p>
+
+The AI-generated captions and hashtag
+recommendations saved our team hours every week.
+
+</p>
+
+<b>— Rahul, Startup Founder</b>
+
+</div>
+
+<div class="card fade">
+
+<h3>⭐⭐⭐⭐⭐</h3>
+
+<p>
+
+The competitor intelligence dashboard
+gave us valuable insights for our campaigns.
+
+</p>
+
+<b>— Emily, Social Media Strategist</b>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h2 class="section-title fade">
+
+Contact Us
+
+</h2>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="text" placeholder="Company Name">
+
+<textarea rows="6" placeholder="Tell us about your project..."></textarea>
+
+<button class="btn" type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+</section>
+
+<footer style="background:#06090f;padding:40px;text-align:center;">
+
+<h2 style="color:#00E5FF;">
+
+PulseAI
+
+</h2>
+
+<br>
+
+<p>
+
+Intelligent Social Media Companion powered by
+
+IBM Granite • IBM Langflow • IBM Orchestrate
+
+</p>
+
+<br>
+
+<p>
+
+© 2026 PulseAI. All Rights Reserved.
+
+</p>
+
+</footer>
+<script>
+
+// ==============================
+// Fade In Animation
+// ==============================
+
+const fadeElements = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:0.2});
+
+fadeElements.forEach(el=>observer.observe(el));
+
+
+// ==============================
+// Navbar Background Animation
+// ==============================
+
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+if(window.scrollY>80){
+
+header.style.background="rgba(8,12,22,.95)";
+header.style.boxShadow="0 5px 25px rgba(0,229,255,.15)";
+header.style.padding="14px 8%";
+
+}
+
+else{
+
+header.style.background="rgba(10,15,30,.65)";
+header.style.boxShadow="none";
+header.style.padding="18px 8%";
+
+}
+
+});
+
+
+// ==============================
+// Animated Dashboard Counter
+// ==============================
+
+const counters=document.querySelectorAll(".box h2");
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const txt=counter.innerText;
+
+const value=parseInt(txt.replace(/\D/g,""));
+
+let current=0;
+
+const interval=setInterval(()=>{
+
+current+=Math.ceil(value/60);
+
+if(current>=value){
+
+counter.innerText=txt;
+
+clearInterval(interval);
+
+}
+
+else{
+
+if(txt.includes("%"))
+counter.innerText=current+"%";
+
+else if(txt.includes("K"))
+counter.innerText=current+"K";
+
+else if(txt.includes("M"))
+counter.innerText=(current/1000000).toFixed(1)+"M+";
+
+else
+counter.innerText=current;
+
+}
+
+},30);
+
+};
+
+update();
+
+});
+
+
+// ==============================
+// Contact Form
+// ==============================
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+alert("✅ Thank you!\n\nYour message has been received.\nOur AI team will contact you soon.");
+
+form.reset();
+
+});
+
+
+// ==============================
+// Smooth Button Hover
+// ==============================
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-5px) scale(1.05)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0px) scale(1)";
+
+});
+
+});
+
+
+// ==============================
+// AI Chat Popup
+// ==============================
+
+const chat=document.createElement("div");
+
+chat.innerHTML="🤖";
+
+chat.style.position="fixed";
+chat.style.bottom="30px";
+chat.style.right="30px";
+chat.style.width="65px";
+chat.style.height="65px";
+chat.style.borderRadius="50%";
+chat.style.background="linear-gradient(135deg,#00E5FF,#6C63FF)";
+chat.style.display="flex";
+chat.style.alignItems="center";
+chat.style.justifyContent="center";
+chat.style.fontSize="28px";
+chat.style.cursor="pointer";
+chat.style.boxShadow="0 15px 30px rgba(0,229,255,.35)";
+chat.style.zIndex="9999";
+
+document.body.appendChild(chat);
+
+chat.onclick=()=>{
+
+alert(
+"🤖 PulseAI Assistant\n\n" +
+"Hello!\n\n" +
+"I can help you with:\n\n" +
+"• Content Generation\n" +
+"• Hashtag Suggestions\n" +
+"• Trend Prediction\n" +
+"• Sentiment Analysis\n" +
+"• Competitor Intelligence\n" +
+"• Best Posting Schedule"
+);
+
+};
+
+
+// ==============================
+// Typing Hero Effect
+// ==============================
+
+const title=document.querySelector(".hero h1");
+
+const original=title.innerHTML;
+
+title.innerHTML="";
+
+let i=0;
+
+function typeWriter(){
+
+if(i<original.length){
+
+title.innerHTML+=original.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,30);
+
+}
+
+}
+
+setTimeout(typeWriter,400);
+
+
+// ==============================
+// Active Navigation
+// ==============================
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-150;
+
+if(pageYOffset>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.style.color="white";
+
+if(link.getAttribute("href")==="#"+current){
+
+link.style.color="#00E5FF";
+
+}
+
+});
+
+});
+
+
+// ==============================
+// Welcome Console
+// ==============================
+
+console.log("%cWelcome to PulseAI","font-size:22px;color:#00E5FF;font-weight:bold");
+
+console.log("Powered by IBM Granite • IBM Langflow • IBM Orchestrate");
+
+</script>
+
+</body>
+
+</html>
