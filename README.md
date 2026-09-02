@@ -13,7 +13,7 @@ The platform combines **IBM Granite Models**, **IBM Langflow**, and **IBM watson
 
 ---
 
-## Problem Statement
+## Problem Statement below
 
 Managing multiple social media platforms is challenging due to rapidly changing trends, fragmented insights, and increasing competition. Organizations often struggle to create engaging content, track audience sentiment, monitor competitors, and determine the best posting strategy.
 
